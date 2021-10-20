@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <title>WHYFLOW</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Merriweather&display=swap">
+  <link rel="icon" href="data:;base64,iVBORw0KGgo=">
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      background-color: #000;
+      max-height: 100vh;
+      overflow-y: hidden;
+    }
+    body {
+      font-family: 'Merriweather', serif;
+      font-size: 12px;
+    }
+    @media (prefers-color-scheme: light) {
+      body {
+        background-color: #fff;
+      }
+    }
+    @media (min-width: 350px) {
+      body {
+        font-size: 13px;
+      }
+    }
+    @media (min-width: 375px) {
+      body {
+        font-size: 14px;
+      }
+    }
+    @media (min-width: 400px) {
+      body {
+        font-size: 15px;
+      }
+    }
+    @media (min-width: 700px) {
+      body {
+        font-size: 24px;
+      }
+    }
+
+    .container {
+      width: 100vw;
+      height: 100vh;
+      display: grid;
+      grid-template-columns: 100%;
+      grid-template-rows: auto 1fr auto;
+      grid-template-areas: "logo" "quote" "email";
+    }
+
+    .logo {
+      grid-area: logo;
+      margin-top: 5vh;
+      margin-left: 5vh;
+      width: 20vw;      
+    }
+    @media (min-width: 700px) {
+      .logo {
+        width: 7vw;
+      }
+    }
+
+    .logo-text {
+      fill: #fff;
+    }
+    @media (prefers-color-scheme: light) {
+      .logo-text {
+        fill: #000;
+      }
+    }
+
+    .quote {
+      grid-area: quote;
+      margin-left: 5vh;
+      margin-top: 15vh;
+    }
+    @media (min-width: 700px) {
+      .quote {
+        place-self: center;
+        margin-top: 0;
+      }
+    }
+
+    .quote-text {
+      background-color: #fff;
+      color: #000;
+      box-decoration-break: clone;
+      -webkit-box-decoration-break: clone;
+      padding: 0.2em 0.2em;
+      line-height: 2.2em;
+    }
+    @media (prefers-color-scheme: light) {
+      .quote-text {
+        background-color: #000;
+        color: #fff;
+      }
+    }
+
+    .quote-author {
+      color: #fff;
+    }
+    @media (prefers-color-scheme: light) {
+      .quote-author {
+        color: #000;
+      }
+    }
+    
+    .email {
+      grid-area: email;
+      justify-self: center;
+      display: block;
+      margin-bottom: 30vh;
+      padding: .3em .7em;
+    }
+    @media (min-width: 700px) {
+      .email {
+        margin-bottom: 5vh;
+      }
+    }
+
+    .email, .email:visited {
+      color: #fff;
+    }
+    @media (prefers-color-scheme: light) {
+      .email, .email:visited {
+        color: #000;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="logo">
+      <svg viewBox="0 0 15.209 8.533" class="logo-text">
+        <path d="M0 0l2.561 8.533h1.777l.352-1.166.352 1.166h1.777L9.379 0H7.377L5.93 4.822 4.689.691l-1.24 4.131L2.002 0H0zm9.982 0v1.918h3.309v1.391H9.982v1.918h3.309v3.307h1.918V0H9.982z"/>
+      </svg>
+    </div>
+
+    <div class="quote">
+      <span class="quote-text">“He who has a why to live for can bear almost<br/>any how.”</span>
+      <span class="quote-author"> — Friedrich Nietzsche</span>
+    </div>
+
+    <a class="email" href="mailto:hello@whyflow.ee">hello@whyflow.ee</a>
+  </div>
+
+</body>
+
+</html>
