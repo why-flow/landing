@@ -12,12 +12,19 @@
     html, body {
       margin: 0;
       padding: 0;
+      background-color: #000;
+      max-height: 100vh;
+      overflow-y: hidden;
     }
     body {
       font-family: 'Merriweather', serif;
       font-size: 12px;
     }
-
+    @media (prefers-color-scheme: light) {
+      body {
+        background-color: #fff;
+      }
+    }
     @media (min-width: 350px) {
       body {
         font-size: 13px;
@@ -39,12 +46,20 @@
       }
     }
 
+    .container {
+      width: 100vw;
+      height: 100vh;
+      display: grid;
+      grid-template-columns: 100%;
+      grid-template-rows: auto 1fr auto;
+      grid-template-areas: "logo" "quote" "email";
+    }
+
     .logo {
-      position: absolute;
-      top: 5vh;
-      left: 5vh;
-      width: 20vw;
-      fill: #000;
+      grid-area: logo;
+      margin-top: 5vh;
+      margin-left: 5vh;
+      width: 20vw;      
     }
     @media (min-width: 700px) {
       .logo {
@@ -52,62 +67,71 @@
       }
     }
 
-    section {
-      display: grid;
-      height: 70vh;
-      justify-items: center;
-      align-items: center;
-      grid-template-rows: 1fr auto;
+    .logo-text {
+      fill: #fff;
     }
-
-    section.black {
-      background-color: #000;
-      color: #fff; 
-    }
-
-    .content {
-      width: 70vw;
-      max-width: 800px;
+    @media (prefers-color-scheme: light) {
+      .logo-text {
+        fill: #000;
+      }
     }
 
     .quote {
-      width: auto;
+      grid-area: quote;
+      margin-left: 5vh;
+      margin-top: 15vh;
+    }
+    @media (min-width: 700px) {
+      .quote {
+        place-self: center;
+        margin-top: 0;
+      }
     }
 
     .quote-text {
-      background-color: #000;
-      color: #fff;
+      background-color: #fff;
+      color: #000;
       box-decoration-break: clone;
       -webkit-box-decoration-break: clone;
       padding: 0.2em 0.2em;
       line-height: 2.2em;
     }
+    @media (prefers-color-scheme: light) {
+      .quote-text {
+        background-color: #000;
+        color: #fff;
+      }
+    }
 
     .quote-author {
-      color: #000;
+      color: #fff;
     }
-
-    .content > p {
-      margin-bottom: 5vh;
+    @media (prefers-color-scheme: light) {
+      .quote-author {
+        color: #000;
+      }
     }
-
-    p.primary {
-      font-size: 150%;
-      text-align: center;
-    }
-
-    p.secondary {
-      text-align: center;
-      font-size: 75%;
-    }
-
+    
     .email {
-      margin-top: -20vh;
+      grid-area: email;
+      justify-self: center;
+      display: block;
+      margin-bottom: 30vh;
       padding: .3em .7em;
+    }
+    @media (min-width: 700px) {
+      .email {
+        margin-bottom: 5vh;
+      }
     }
 
     .email, .email:visited {
       color: #fff;
+    }
+    @media (prefers-color-scheme: light) {
+      .email, .email:visited {
+        color: #000;
+      }
     }
   </style>
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-KGHBEQWMS8"></script>
@@ -127,41 +151,20 @@
 </head>
 
 <body>
+  <div class="container">
+    <div class="logo">
+      <svg viewBox="0 0 15.209 8.533" class="logo-text">
+        <path d="M0 0l2.561 8.533h1.777l.352-1.166.352 1.166h1.777L9.379 0H7.377L5.93 4.822 4.689.691l-1.24 4.131L2.002 0H0zm9.982 0v1.918h3.309v1.391H9.982v1.918h3.309v3.307h1.918V0H9.982z"/>
+      </svg>
+    </div>
 
-  <div class="logo">
-    <svg viewBox="0 0 15.209 8.533" class="logo-text">
-      <path d="M0 0l2.561 8.533h1.777l.352-1.166.352 1.166h1.777L9.379 0H7.377L5.93 4.822 4.689.691l-1.24 4.131L2.002 0H0zm9.982 0v1.918h3.309v1.391H9.982v1.918h3.309v3.307h1.918V0H9.982z"/>
-    </svg>
-  </div>
-
-  <section>
-    <div class="content quote">
+    <div class="quote">
       <span class="quote-text">“He who has a why to live for can bear almost<br/>any how.”</span>
       <span class="quote-author"> — Friedrich Nietzsche</span>
     </div>
-  </section>
 
-  <section class="black">
-    <div class="content">
-      <p class="secondary">In the manufacturing industry, it was not long time ago, when software used to be an after-thought. Just enough to get the job done and keep things afloat.</p>
-      <p class="primary">The purpose of software has changed</p>
-    </div>
-  </section>
-
-  <section>
-    <div class="content">
-      <p class="primary">Your digital strategy defines the future of your company</p>
-      <p class="secondary">In todays world the demand for labor is higher than ever, competition has no borders and innovation is critical for success.</p>
-    </div>
-  </section>
-
-  <section class="black">
-    <div class="content">
-      <p class="secondary">You know how to run the business and we know how to transform this knowledge into digital solutions that exceed the exceptions and solve the real challenges.</p>
-      <p class="primary">Let’s build your next solution together</p>
-    </div>
     <a class="email" href="mailto:hello@whyflow.ee">hello@whyflow.ee</a>
-  </section>
+  </div>
 
 </body>
 
